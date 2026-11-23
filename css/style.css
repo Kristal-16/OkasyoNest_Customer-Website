@@ -142,7 +142,7 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
 .hero__overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(rgba(50, 22, 8, .66), rgba(33, 22, 15, .78)); }
 .hero__content { padding-block: 72px; }
 .hero__eyebrow { font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
-.hero h1 { font-size: clamp(2.6rem, 7.2vw, 5.4rem); max-width: 14ch; margin-inline: auto; }
+.hero h1 { font-size: clamp(2.6rem, 7.2vw, 4.4rem); margin-inline: auto; }
 .hero h1 em { color: var(--gold); }
 .hero__text { max-width: 64ch; margin: 24px auto 0; font-size: clamp(1rem, 1.6vw, 1.2rem); color: #F4E9D4; }
 .hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 40px; }
