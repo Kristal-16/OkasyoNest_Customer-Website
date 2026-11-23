@@ -21,7 +21,7 @@
   const STORAGE_KEY = 'okasyonest_demo_reservation'; /* demo only – sessionStorage */
 
   /* Fields that can show an error, in the order they appear on the page. */
-  const FIELD_ORDER = ['fullName', 'contact', 'hall', 'eventDate', 'timeSlot', 'guests', 'catering', 'cashArrangement', 'paymentRef'];
+  const FIELD_ORDER = ['fullName', 'email', 'hall', 'eventDate', 'timeSlot', 'guests', 'catering', 'cashArrangement', 'paymentRef'];
 
   const submitBtn = $('submitBtn');
   const submitLabel = submitBtn.textContent;
@@ -35,7 +35,7 @@
     const guestsNum = Number(guestsRaw);
     return {
       fullName: f.fullName.value.trim(),
-      contact: f.contact.value.trim(),
+      email: f.email.value.trim(),
       eventType: f.eventType.value,
       hallKey: f.hall.value,
       eventDate: f.eventDate.value,
@@ -58,7 +58,8 @@
      Base Total        = hall session rate + catering subtotal
      Discount          = base total x promo %   (only ONE promo)
      Estimated Total   = base total - discount
-     Remaining Balance = estimated total - P5,000 deposit
+     Online: Remaining Balance = estimated total - P5,000 deposit
+     Cash:   no deposit - the whole estimated total is paid at the office
      Nothing is calculated for empty / invalid / over-capacity guests.
      ========================================================== */
   function calculateReservationTotal(values) {
@@ -76,7 +77,8 @@
       discount: null,
       estimatedTotal: null,
       remainingBalance: null,
-      deposit: DEPOSIT_AMOUNT
+      deposit: values.paymentMode === 'cash' ? null : DEPOSIT_AMOUNT,
+      amountDueAtOffice: null
     };
     if (!hall || !pkg || !guestsValid) return result;
 
@@ -84,7 +86,11 @@
     result.baseTotal = hall.rate + result.cateringSubtotal;
     result.discount = (result.baseTotal * result.discountPercent) / 100;
     result.estimatedTotal = result.baseTotal - result.discount;
-    result.remainingBalance = Math.max(result.estimatedTotal - DEPOSIT_AMOUNT, 0);
+    if (values.paymentMode === 'cash') {
+      result.amountDueAtOffice = result.estimatedTotal; /* whole payment at the office */
+    } else {
+      result.remainingBalance = Math.max(result.estimatedTotal - DEPOSIT_AMOUNT, 0);
+    }
     return result;
   }
 
@@ -125,9 +131,20 @@
     setText('sumPromo', promo ? promo.name : '—');
     setText('sumDiscount', calc.discount === null ? '—' : `−${money(calc.discount)} (${calc.discountPercent}%)`);
     setText('sumPayment', paymentLabel(values));
-    setText('sumDeposit', money(DEPOSIT_AMOUNT));
     setText('sumTotal', money(calc.estimatedTotal));
-    setText('sumBalance', money(calc.remainingBalance));
+    if (values.paymentMode === 'cash') {
+      /* Cash: no deposit – proceed to the office for the whole payment */
+      setText('sumDepositLabel', 'Proceed to Office for Whole Payment');
+      setText('sumDeposit', money(calc.amountDueAtOffice));
+      setText('sumDepositNote', 'Pay the whole amount in cash at the OkasyoNest office. Our OkasyoNest coordinator will send your itemized quotation within 2 hours.');
+      $('sumBalanceRow').hidden = true;
+    } else {
+      setText('sumDepositLabel', 'Reservation Deposit to Lock Date');
+      setText('sumDeposit', money(DEPOSIT_AMOUNT));
+      setText('sumDepositNote', 'Deductible from your total package bill. Our OkasyoNest coordinator will send your itemized quotation within 2 hours.');
+      setText('sumBalance', money(calc.remainingBalance));
+      $('sumBalanceRow').hidden = false;
+    }
 
     const note = $('sumNote');
     if (calc.estimatedTotal !== null) {
@@ -245,10 +262,8 @@
     return `${d.getFullYear()}-${m}-${day}`;
   }
 
-  function isValidContact(value) {
-    const email = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    const mobile = /^(\+?63|0)9\d{9}$/; /* 09171234567, +639171234567, 639171234567 */
-    return email.test(value) || mobile.test(value.replace(/[\s\-()]/g, ''));
+  function isValidEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
   }
 
   function validateReservationForm(values) {
@@ -258,8 +273,8 @@
     if (!values.fullName) errors.fullName = 'Enter your full name.';
     else if (!/^[\p{L}][\p{L}\s.'-]{1,}$/u.test(values.fullName)) errors.fullName = 'Use letters only (spaces, periods, hyphens, and apostrophes are fine).';
 
-    if (!values.contact) errors.contact = 'Enter a mobile number or email address.';
-    else if (!isValidContact(values.contact)) errors.contact = 'Use a mobile like 0917 123 4567 or an email like name@example.com.';
+    if (!values.email) errors.email = 'Enter your email address.';
+    else if (!isValidEmail(values.email)) errors.email = 'Use a valid email like name@example.com.';
 
     if (!hall) errors.hall = 'Choose a hall.';
     if (!PACKAGES[values.packageKey]) errors.catering = 'Choose a catering package.';
@@ -351,7 +366,7 @@
 
     setText('confirmRef', record.reference);
     addRow(list, 'Name', v.fullName);
-    addRow(list, 'Contact', v.contact);
+    addRow(list, 'Email', v.email);
     addRow(list, 'Event type', v.eventType);
     addRow(list, 'Hall', HALLS[v.hallKey].name);
     addRow(list, 'Date & slot', `${formatDate(v.eventDate)} • ${SLOTS[v.timeSlot]}`);
@@ -361,12 +376,28 @@
     addRow(list, 'Payment', paymentLabel(v));
     if (v.paymentMode === 'online') addRow(list, 'Payment reference', v.paymentRef);
     addRow(list, 'Estimated total', money(c.estimatedTotal));
-    addRow(list, 'Reservation deposit', money(c.deposit));
-    addRow(list, 'Remaining balance', money(c.remainingBalance));
+    if (v.paymentMode === 'cash') {
+      addRow(list, 'Whole payment at office', money(c.amountDueAtOffice));
+    } else {
+      addRow(list, 'Reservation deposit', money(c.deposit));
+      addRow(list, 'Remaining balance', money(c.remainingBalance));
+    }
+
+    /* Payment status banner: online = "Paid Successfully", cash = whole payment still due at the office */
+    const statusBox = $('confirmStatus');
+    if (v.paymentMode === 'online') {
+      statusBox.dataset.state = 'paid';
+      setText('confirmCheck', '✓');
+      setText('confirmStatusText', 'Paid Successfully');
+    } else {
+      statusBox.dataset.state = 'due';
+      setText('confirmCheck', '₱');
+      setText('confirmStatusText', 'Proceed to Office for Whole Payment');
+    }
 
     setText('confirmNote', v.paymentMode === 'cash'
-      ? 'Demo only: in the live system this would start a 48-hour pencil hold until the ₱5,000 deposit is paid at the office. No date is booked yet.'
-      : 'Demo only: in the live system, staff would verify your payment reference before the date is locked. No payment has been verified and no date is booked yet.');
+      ? 'Demo only: in the live system this would start a 48-hour pencil hold until the whole payment is made at the office. No date is booked yet.'
+      : '');
 
     OkasyoUI.openModal('confirmModal');
   }

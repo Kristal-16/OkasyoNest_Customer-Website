@@ -103,6 +103,11 @@
 .summary-card__fine { margin-top: 16px; font-size: .72rem; color: rgba(246, 233, 210, .62); }
 
 /* ---------- 6. CONFIRMATION MODAL ---------- */
+/* Payment status banner at the top of the confirmation modal */
+.confirm__status { display: flex; align-items: center; gap: 10px; margin-right: 46px; padding: 10px 16px; border-radius: 14px; border: 1px solid #3F8F52; background: #DDF7DB; color: #1F6B3A; font-size: .95rem; font-weight: 600; }
+.confirm__check { flex: none; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: #3F8F52; color: #fff; font-size: .85rem; }
+.confirm__status[data-state="due"] { background: var(--yellow); border-color: var(--gold); color: var(--choc); }
+.confirm__status[data-state="due"] .confirm__check { background: var(--gold); color: var(--text); }
 .confirm__badge { justify-self: start; }
 .confirm__ref { font-size: .95rem; }
 .confirm__ref strong { font-family: var(--font-body); letter-spacing: .04em; }
@@ -111,6 +116,7 @@
 .confirm__list dt { color: var(--muted); }
 .confirm__list dd { margin: 0; text-align: right; font-weight: 600; overflow-wrap: anywhere; }
 .confirm__note { font-size: .8rem; color: var(--muted); }
+.confirm__note:empty { display: none; }
 
 /* ---------- 7. RESPONSIVE ---------- */
 @media (max-width: 1000px) {

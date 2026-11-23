@@ -69,9 +69,9 @@
             </div>
 
             <div class="field col-3">
-              <label for="contact">Mobile Number or Email *</label>
-              <input type="text" id="contact" name="contact" placeholder="+63 917 000 0000" autocomplete="tel" required>
-              <small class="field-error" id="err-contact" aria-live="polite"></small>
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="e.g., juan@email.com" autocomplete="email" required>
+              <small class="field-error" id="err-email" aria-live="polite"></small>
             </div>
 
             <div class="field col-3">
@@ -181,7 +181,7 @@
               <h3>Cash Payment Instructions</h3>
               <span class="pill pill--green">48-Hr Pencil Hold</span>
             </div>
-            <p>Your preferred date will be placed on a <strong>48-hour courtesy hold</strong>. Visit the OkasyoNest office during its designated payment hours to settle the <strong>₱5,000 reservation fee</strong> in cash. The remaining balance is payable 7 days before your event or on the event day.</p>
+            <p>Your preferred date will be placed on a <strong>48-hour courtesy hold</strong>. <strong>Proceed to the OkasyoNest office</strong> during its designated payment hours to settle the <strong>whole payment</strong> in cash.</p>
             <div class="radio-row" role="radiogroup" aria-label="Cash payment arrangement">
               <label class="radio-chip">
                 <input type="radio" name="cashArrangement" value="office-visit">
@@ -262,15 +262,15 @@
 
           <div class="summary-deposit">
             <div class="summary-deposit__row">
-              <span>Reservation Deposit to Lock Date</span>
+              <span id="sumDepositLabel">Reservation Deposit to Lock Date</span>
               <strong id="sumDeposit">₱5,000.00</strong>
             </div>
-            <p>Deductible from your total package bill. Our OkasyoNest coordinator will send your itemized quotation within 2 hours.</p>
+            <p id="sumDepositNote">Deductible from your total package bill. Our OkasyoNest coordinator will send your itemized quotation within 2 hours.</p>
           </div>
 
           <dl class="summary-totals">
             <div><dt>Estimated Total</dt><dd id="sumTotal">—</dd></div>
-            <div><dt>Remaining Balance</dt><dd id="sumBalance">—</dd></div>
+            <div id="sumBalanceRow"><dt>Remaining Balance</dt><dd id="sumBalance">—</dd></div>
           </dl>
           <p class="summary-card__fine" id="sumNote">Enter a valid guest count to see your estimated total. Final amounts appear in the itemized quotation.</p>
         </aside>
@@ -278,10 +278,46 @@
     </div>
   </main>
 
-  <footer class="site-footer site-footer--compact">
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div>
+        <a class="brand brand--footer" href="index.html#home" aria-label="OkasyoNest – back to home">
+          <!-- IMAGE PLACEHOLDER: FOOTER LOGO (same file as the header logo) -->
+          <div class="image-placeholder brand__logo">
+            <span>LOGO</span>
+            <img src="assets/images/logo-placeholder.png" alt="OkasyoNest logo" onerror="this.remove()">
+          </div>
+          <span class="brand__name">Okasyo<em>Nest</em></span>
+        </a>
+        <p class="footer__tagline">Exclusively serving Bauan, Batangas</p>
+        <p class="footer__about">Seamless event hall scheduling and curated Filipino banquet catering across all barangays of Bauan, Batangas—including Poblacion, San Roque, Manghinao, San Andres, Aplaya, and Sta. Maria.</p>
+      </div>
+
+      <div>
+        <h3 class="footer__title">Navigation</h3>
+        <ul class="footer__links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#venues">Venues</a></li>
+          <li><a href="index.html#packages">Packages</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer__title">Bauan Office &amp; Kitchen</h3>
+        <ul class="footer__contact">
+          <li>Poblacion, Bauan, Batangas</li>
+          <li>Operating Hours: Mon – Sun, 8:00 AM – 6:00 PM</li>
+          <li><a href="mailto:bookings@okasyonest-jcb.ph">bookings@okasyonest-jcb.ph</a></li>
+          <li><a href="tel:+630437271480">+63 (043) 727-1480</a> • <a href="tel:+639178429104">+63 917 842 9104</a></li>
+        </ul>
+      </div>
+    </div>
+
     <div class="container footer__bottom">
       <p>© 2026 OkasyoNest Event Venue Reservation Exclusively Serving Bauan, Batangas.</p>
-      <p>Poblacion, Bauan, Batangas • Mon – Sun, 8:00 AM – 6:00 PM • <a href="mailto:bookings@okasyonest-jcb.ph">bookings@okasyonest-jcb.ph</a> • <a href="tel:+639178429104">+63 917 842 9104</a></p>
+      <p class="footer__closing">Crafted with intention, warmth, and unforgettable flavor.</p>
     </div>
   </footer>
 
@@ -290,6 +326,11 @@
     <div class="modal__dialog">
       <button class="modal__x" type="button" data-modal-close aria-label="Close confirmation">&times;</button>
       <div class="modal__body">
+        <!-- PAYMENT STATUS BANNER: text and color are set by showConfirmation() in js/reservation.js -->
+        <div class="confirm__status" id="confirmStatus" data-state="paid">
+          <span class="confirm__check" id="confirmCheck" aria-hidden="true">✓</span>
+          <span id="confirmStatusText">Paid Successfully</span>
+        </div>
         <span class="pill pill--gold confirm__badge">Demo request • Pending review</span>
         <h3 id="confirmTitle">Reservation request received</h3>
         <p class="confirm__ref">Reference no. <strong id="confirmRef"></strong></p>
