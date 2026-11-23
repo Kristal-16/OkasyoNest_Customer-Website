@@ -1,0 +1,127 @@
+/* ==========================================================
+   OkasyoNest – reservation.css (reservation.html only)
+   Sections: 1 Page header · 2 Layout · 3 Form · 4 Payment
+   5 Summary card · 6 Confirmation modal · 7 Responsive
+   Uses the design tokens defined in css/style.css.
+   ========================================================== */
+
+/* ---------- 1. PAGE HEADER ---------- */
+.reservation { padding: clamp(40px, 6vw, 72px) 0 clamp(56px, 8vw, 96px); background: var(--cream); }
+.res-head { max-width: 62ch; margin: 0 auto 44px; text-align: center; }
+.res-head h1 { font-size: clamp(2.2rem, 5.4vw, 3.8rem); }
+.res-head p:last-child { margin-top: 14px; color: var(--muted); }
+
+/* ---------- 2. LAYOUT ---------- */
+.res-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .85fr); gap: 36px; align-items: start; }
+
+/* ---------- 3. FORM ---------- */
+.form-card { padding: clamp(22px, 3.5vw, 36px); background: #FEE5A6; border: 1px solid rgba(96, 48, 21, .35); border-radius: 28px; box-shadow: var(--shadow); }
+.form-card__title { display: flex; align-items: center; gap: 12px; font-family: var(--font-venue); font-weight: 600; font-size: 1.7rem; padding-bottom: 12px; border-bottom: 1px solid rgba(96, 48, 21, .4); margin-bottom: 22px; }
+.form-card__title--spaced { margin-top: 36px; margin-bottom: 8px; }
+.form-card__sub { margin-bottom: 16px; font-size: .9rem; color: var(--muted); }
+.step { flex: none; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: #000; color: #fff; font: 600 .9rem var(--font-body); }
+
+.field-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px 16px; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-6 { grid-column: span 6; }
+.field { display: grid; gap: 6px; align-content: start; min-width: 0; }
+.field label { font-size: .72rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.field input, .field select, .field textarea {
+  width: 100%; padding: .7rem .9rem; border: 1px solid #CDBB90; border-radius: 12px; background: var(--card);
+  font: 400 .92rem var(--font-body); color: var(--text); transition: border-color .2s, box-shadow .2s;
+}
+.field textarea { resize: vertical; min-height: 110px; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--choc); box-shadow: 0 0 0 3px rgba(220, 168, 63, .5); }
+.field input[aria-invalid="true"], .field select[aria-invalid="true"] { border-color: #B3261E; background: #FFF4F2; }
+.field-hint { font-size: .75rem; color: var(--muted); }
+.field-hint.is-over { color: #B3261E; font-weight: 600; }
+.field-error { min-height: 0; font-size: .78rem; font-weight: 500; color: #B3261E; }
+.field-error:empty { display: none; }
+
+.availability { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; align-items: center; padding: 14px; border: 1px dashed var(--warm); border-radius: 16px; background: rgba(255, 249, 233, .6); }
+.availability__box { display: grid; place-items: center; min-height: 96px; border-radius: 12px; background: repeating-linear-gradient(45deg, #EADFBE, #EADFBE 10px, #E0D2AB 10px, #E0D2AB 20px); color: var(--choc); font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-align: center; padding: 8px; }
+.availability__side { display: grid; gap: 10px; justify-items: start; }
+.availability__msg { font-size: .8rem; color: var(--muted); }
+
+/* ---------- 4. PAYMENT ---------- */
+.pay-options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.pay-option { position: relative; display: grid; gap: 6px; align-content: start; padding: 16px 18px; border: 1.5px solid #CDBB90; border-radius: 16px; background: var(--card); cursor: pointer; transition: border-color .2s, background .2s; }
+.pay-option input { position: absolute; top: 18px; left: 16px; width: 18px; height: 18px; accent-color: #1F6B3A; }
+.pay-option__head { display: flex; align-items: center; gap: 10px; padding-left: 28px; font-weight: 600; }
+.pay-option__text { font-size: .8rem; color: var(--muted); }
+.pay-option.is-selected { border-color: #3F8F52; background: #DDF7DB; }
+.pay-option:focus-within { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.pay-panel { margin-top: 16px; padding: 18px 20px; border: 1px solid #CDBB90; border-radius: 16px; background: var(--card); display: grid; gap: 14px; }
+.pay-panel__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.pay-panel h3 { font-family: var(--font-body); font-size: .85rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+.pay-panel p { font-size: .85rem; }
+.pill { display: inline-block; padding: 3px 12px; border-radius: 999px; font-size: .72rem; font-weight: 600; }
+.pill--green { background: #DDF7DB; border: 1px solid #3F8F52; color: #1F6B3A; }
+.pill--gold { background: var(--yellow); border: 1px solid var(--gold); color: var(--choc); }
+.pill--outline { border: 1px solid var(--gold); background: rgba(220, 168, 63, .12); color: var(--gold); padding: 6px 16px; }
+
+.radio-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.radio-chip { position: relative; display: inline-flex; align-items: center; padding: .55rem 1.2rem; border: 1.5px solid var(--warm); border-radius: 12px; background: #fff; font-size: .82rem; font-weight: 500; cursor: pointer; transition: background .2s, color .2s; }
+.radio-chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.radio-chip.is-selected { background: var(--deep); border-color: var(--deep); color: #fff; }
+.radio-chip:focus-within { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.account-card { display: grid; grid-template-columns: 1fr auto; gap: 14px 20px; align-items: center; padding: 16px 18px; border: 1px solid #CDBB90; border-radius: 14px; background: #fff; }
+.account-card h4 { grid-column: 1 / -1; margin: 0; font-size: .95rem; font-weight: 600; }
+.account-card__rows { display: grid; gap: 10px; margin: 0; }
+.account-card__rows dt { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.account-card__rows dd { margin: 0; font-size: .9rem; }
+.account-card__number { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.qr-placeholder { width: 112px; height: 112px; border-radius: 12px; }
+.qr-placeholder span { font-size: .6rem; }
+
+.btn--submit { margin-top: 28px; background: #000; color: #fff; text-transform: uppercase; letter-spacing: .05em; font-size: .85rem; padding-block: 1rem; }
+.btn--submit:hover { background: var(--deep); }
+.btn--submit:disabled { opacity: .6; cursor: progress; transform: none; }
+.form-status { margin-top: 18px; font-size: .85rem; font-weight: 500; color: #B3261E; }
+.form-status:empty { display: none; }
+.form-card__fine { margin-top: 12px; font-size: .75rem; color: var(--muted); text-align: center; }
+
+/* ---------- 5. SUMMARY CARD ---------- */
+.summary-card { position: sticky; top: calc(var(--header-h) + 20px); padding: 30px 28px; border-radius: 22px; background: var(--ink); color: #F6E9D2; box-shadow: var(--shadow); }
+.summary-card__eyebrow { font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.summary-card h2 { margin: 6px 0 18px; padding-bottom: 14px; border-bottom: 1px solid rgba(246, 233, 210, .25); font-size: 1.9rem; color: #fff; }
+.summary-list, .summary-totals { display: grid; gap: 12px; margin: 0; font-size: .85rem; }
+.summary-list > div, .summary-totals > div { display: flex; justify-content: space-between; gap: 16px; }
+.summary-list dt, .summary-totals dt { color: rgba(246, 233, 210, .78); }
+.summary-list dd, .summary-totals dd { margin: 0; text-align: right; font-weight: 600; color: #fff; overflow-wrap: anywhere; }
+.summary-list dd.is-gold { color: var(--gold); }
+.summary-list dd.is-green { color: #8FD39B; }
+.summary-deposit { margin: 20px 0; padding: 16px 18px; border: 1px solid rgba(220, 168, 63, .55); border-radius: 14px; }
+.summary-deposit__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: .78rem; color: rgba(246, 233, 210, .78); }
+.summary-deposit__row strong { font-family: var(--font-body); font-size: 1.5rem; color: var(--gold); }
+.summary-deposit p { margin-top: 8px; font-size: .75rem; color: rgba(246, 233, 210, .7); }
+.summary-totals { padding-top: 4px; }
+.summary-totals > div:first-child dd { font-size: 1.15rem; color: var(--gold); }
+.summary-card__fine { margin-top: 16px; font-size: .72rem; color: rgba(246, 233, 210, .62); }
+
+/* ---------- 6. CONFIRMATION MODAL ---------- */
+.confirm__badge { justify-self: start; }
+.confirm__ref { font-size: .95rem; }
+.confirm__ref strong { font-family: var(--font-body); letter-spacing: .04em; }
+.confirm__list { display: grid; gap: 8px; margin: 4px 0; padding: 14px 18px; border-radius: 18px; background: var(--yellow); font-size: .85rem; }
+.confirm__list > div { display: flex; justify-content: space-between; gap: 16px; }
+.confirm__list dt { color: var(--muted); }
+.confirm__list dd { margin: 0; text-align: right; font-weight: 600; overflow-wrap: anywhere; }
+.confirm__note { font-size: .8rem; color: var(--muted); }
+
+/* ---------- 7. RESPONSIVE ---------- */
+@media (max-width: 1000px) {
+  .res-layout { grid-template-columns: 1fr; }
+  .summary-card { position: static; }
+}
+@media (max-width: 640px) {
+  .col-2, .col-3 { grid-column: span 6; }
+  .pay-options { grid-template-columns: 1fr; }
+  .availability { grid-template-columns: 1fr; }
+  .account-card { grid-template-columns: 1fr; }
+  .qr-placeholder { width: 96px; height: 96px; }
+  .summary-card { padding: 24px 20px; }
+}

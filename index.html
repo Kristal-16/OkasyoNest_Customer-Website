@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OkasyoNest | Event Venue Reservation in Bauan, Batangas</title>
+  <meta name="description" content="OkasyoNest offers event halls and Batangueño catering across Bauan, Batangas. Check halls, compare packages, and reserve your date online.">
+
+  <!-- Fonts: DM Serif Display + Cormorant Garamond (headings), Poppins (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Serif+Display:ital@0;1&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header__inner">
+      <a class="brand" href="#home" aria-label="OkasyoNest – back to top">
+        <!-- IMAGE PLACEHOLDER: LOGO
+             Save your logo as assets/images/logo-placeholder.png (or change the src). -->
+        <div class="image-placeholder brand__logo">
+          <span>LOGO</span>
+          <img src="assets/images/logo-placeholder.png" alt="OkasyoNest logo" onerror="this.remove()">
+        </div>
+        <span class="brand__text">
+          <span class="brand__name">Okasyo<em>Nest</em></span>
+          <span class="brand__tag">Event Venue Reservation</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#venues">Venues</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="nav__cta"><a class="btn btn--gold btn--sm" href="reservation.html">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HOME / HERO ================= -->
+    <section class="hero" id="home">
+      <!-- IMAGE PLACEHOLDER: HOME HERO BACKGROUND
+           Replace by saving a picture as assets/images/home-hero-placeholder.jpg -->
+      <div class="image-placeholder hero__image">
+        <span>HOME HERO IMAGE</span>
+        <img src="assets/images/home-hero-placeholder.jpg" alt="OkasyoNest event venue set for a grand celebration" onerror="this.remove()">
+      </div>
+      <div class="hero__overlay"></div>
+
+      <div class="container hero__content">
+        <p class="hero__eyebrow">Event Venue Reservation</p>
+        <h1>Exquisite Spaces for <em>Unforgettable</em> Moments</h1>
+        <p class="hero__text">From majestic grand galas to intimate garden soirées, OkasyoNest offers breathtaking venues, authentic Batangueño catering, and bespoke hospitality services tailored to perfection.</p>
+        <div class="hero__actions">
+          <a class="btn btn--light" href="#venues">Explore Venues</a>
+          <a class="btn btn--gold" href="#promos">View Active Promos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT / OUR STORY ================= -->
+    <section class="section section--yellow" id="about">
+      <div class="container">
+        <div class="about__head">
+          <div>
+            <p class="eyebrow">About OkasyoNest</p>
+            <h2 class="section-title">Our Story</h2>
+          </div>
+          <div class="about__text">
+            <p>Born from the belief that sharing a meal should feel soulful rather than stressful, <strong>OkasyoNest</strong> brings together timeless Filipino hospitality, curated menus, and seamless banquet execution.</p>
+            <p>Whether you are hosting an intimate family milestone, a grand wedding reception, or a corporate gathering anywhere in Batangas, OkasyoNest eliminates back-and-forth guesswork—letting you check real-time hall availability and customize your catering menu, table setup, and event details upfront.</p>
+          </div>
+        </div>
+
+        <div class="about__gallery">
+          <!-- IMAGE PLACEHOLDER: ABOUT PICTURE 1 (assets/images/about-1-placeholder.jpg) -->
+          <div class="image-placeholder ratio-gallery">
+            <span>ABOUT IMAGE 1</span>
+            <img src="assets/images/about-1-placeholder.jpg" alt="Elegant banquet table setting" onerror="this.remove()">
+          </div>
+          <!-- IMAGE PLACEHOLDER: ABOUT PICTURE 2 (assets/images/about-2-placeholder.jpg) -->
+          <div class="image-placeholder ratio-gallery">
+            <span>ABOUT IMAGE 2</span>
+            <img src="assets/images/about-2-placeholder.jpg" alt="Decorated reception hall" onerror="this.remove()">
+          </div>
+          <!-- IMAGE PLACEHOLDER: ABOUT PICTURE 3 (assets/images/about-3-placeholder.jpg) -->
+          <div class="image-placeholder ratio-gallery">
+            <span>ABOUT IMAGE 3</span>
+            <img src="assets/images/about-3-placeholder.jpg" alt="Table styled with flowers and glassware" onerror="this.remove()">
+          </div>
+        </div>
+
+        <blockquote class="about__quote">
+          “Every celebration deserves a table crafted with intention, warmth, and unforgettable flavor.”
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED PROMOTIONS ================= -->
+    <section class="section section--peach" id="promos">
+      <div class="container">
+        <p class="eyebrow">OkasyoNest Special Offers</p>
+        <h2 class="section-title">Featured Promotions</h2>
+        <p class="section-lead">Take advantage of our exclusive OkasyoNest discounts. Our checkout system automatically detects and applies the single highest discount your cart qualifies for.</p>
+
+        <div class="promo-grid">
+          <article class="promo-card">
+            <div class="promo-card__media">
+              <!-- IMAGE PLACEHOLDER: PROMO 1 – FIRST-TIME CLIENT (assets/images/promo-first-time-placeholder.jpg) -->
+              <div class="image-placeholder ratio-promo">
+                <span>PROMO 1 IMAGE</span>
+                <img src="assets/images/promo-first-time-placeholder.jpg" alt="Bridal bouquet" onerror="this.remove()">
+              </div>
+              <span class="promo-card__badge promo-card__badge--green">Promo 1</span>
+              <span class="promo-card__label">First-Time Client</span>
+            </div>
+            <div class="promo-card__body">
+              <h3>First-Time Client Promo</h3>
+              <p><strong>20% OFF</strong> for <strong>first-time</strong> customers.</p>
+              <p class="promo-card__note promo-card__note--green"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Auto-triggers at first-time customers</p>
+            </div>
+          </article>
+
+          <article class="promo-card">
+            <div class="promo-card__media">
+              <!-- IMAGE PLACEHOLDER: PROMO 2 – REPEAT CLIENT (assets/images/promo-repeat-placeholder.jpg) -->
+              <div class="image-placeholder ratio-promo">
+                <span>PROMO 2 IMAGE</span>
+                <img src="assets/images/promo-repeat-placeholder.jpg" alt="Garden reception hall" onerror="this.remove()">
+              </div>
+              <span class="promo-card__badge promo-card__badge--amber">Promo 2</span>
+              <span class="promo-card__label">Repeat Client</span>
+            </div>
+            <div class="promo-card__body">
+              <h3>Repeat Client Discount</h3>
+              <p><strong>10% OFF</strong> for returning customers.</p>
+              <p class="promo-card__note promo-card__note--amber"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Auto-triggers at returning customers</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SIGNATURE SPACES / BAUAN EVENT HALLS ================= -->
+    <section class="section section--amber" id="venues">
+      <div class="container">
+        <div class="venues__head">
+          <div>
+            <p class="eyebrow eyebrow--gold">Signature Spaces</p>
+            <h2 class="section-title section-title--light">Bauan Event Halls</h2>
+          </div>
+          <p class="venues__lead">Three curated event spaces situated across Poblacion, San Roque, and Manghinao in Bauan, Batangas—each paired exclusively with OkasyoNest.</p>
+        </div>
+
+        <div class="card-grid">
+          <!-- VENUE 1 -->
+          <article class="venue-card">
+            <div class="venue-card__media">
+              <!-- IMAGE PLACEHOLDER: BAUAN GRAND PAVILION (assets/images/bauan-grand-pavilion-placeholder.jpg) -->
+              <div class="image-placeholder ratio-venue">
+                <span>BAUAN GRAND PAVILION IMAGE</span>
+                <img src="assets/images/bauan-grand-pavilion-placeholder.jpg" alt="Bauan Grand Pavilion main hall" onerror="this.remove()">
+              </div>
+              <span class="capacity-badge">Up to 250 Guests</span>
+            </div>
+            <div class="venue-card__body">
+              <p class="venue-card__location">Poblacion, Bauan, Batangas</p>
+              <h3>Bauan Grand Pavilion</h3>
+              <p>Expansive air-conditioned main hall featuring warm chandeliers, an elevated stage platform, dedicated bridal holding suite, and full concert-grade sound system.</p>
+              <ul class="tag-list">
+                <li>Air-Conditioned Main Hall</li>
+                <li>Bridal Suite</li>
+                <li>Stage &amp; Full Sound System</li>
+              </ul>
+            </div>
+            <div class="venue-card__foot">
+              <div>
+                <span class="venue-card__label">Hall Reservation</span>
+                <span class="venue-card__price"><strong>₱42,000</strong> / session</span>
+              </div>
+              <button class="btn btn--dark btn--sm" type="button" data-modal-open="modal-bauan-grand-pavilion">View Details</button>
+            </div>
+          </article>
+
+          <!-- VENUE 2 -->
+          <article class="venue-card">
+            <div class="venue-card__media">
+              <!-- IMAGE PLACEHOLDER: SAN ROQUE GARDEN & VERANDA (assets/images/san-roque-garden-placeholder.jpg) -->
+              <div class="image-placeholder ratio-venue">
+                <span>SAN ROQUE GARDEN IMAGE</span>
+                <img src="assets/images/san-roque-garden-placeholder.jpg" alt="San Roque Garden and Veranda" onerror="this.remove()">
+              </div>
+              <span class="capacity-badge">Up to 150 Guests</span>
+            </div>
+            <div class="venue-card__body">
+              <p class="venue-card__location">San Roque, Bauan, Batangas</p>
+              <h3>San Roque Garden &amp; Veranda</h3>
+              <p>Covered open-air garden pavilion draped in a warm fairy-light canopy, overlooking a manicured scenic courtyard ideal for sunset weddings and family milestones.</p>
+              <ul class="tag-list">
+                <li>Covered Open-Air Pavilion</li>
+                <li>Fairy-Light Canopy</li>
+                <li>Scenic Courtyard</li>
+              </ul>
+            </div>
+            <div class="venue-card__foot">
+              <div>
+                <span class="venue-card__label">Hall Reservation</span>
+                <span class="venue-card__price"><strong>₱42,000</strong> / session</span>
+              </div>
+              <button class="btn btn--dark btn--sm" type="button" data-modal-open="modal-san-roque-garden-veranda">View Details</button>
+            </div>
+          </article>
+
+          <!-- VENUE 3 -->
+          <article class="venue-card">
+            <div class="venue-card__media">
+              <!-- IMAGE PLACEHOLDER: MANGHINAO EXECUTIVE FUNCTION HALL (assets/images/manghinao-hall-placeholder.jpg) -->
+              <div class="image-placeholder ratio-venue">
+                <span>MANGHINAO HALL IMAGE</span>
+                <img src="assets/images/manghinao-hall-placeholder.jpg" alt="Manghinao Executive Function Hall" onerror="this.remove()">
+              </div>
+              <span class="capacity-badge">Up to 80 Guests</span>
+            </div>
+            <div class="venue-card__body">
+              <p class="venue-card__location">Manghinao, Bauan, Batangas</p>
+              <h3>Manghinao Executive Function Hall</h3>
+              <p>Refined private dining lounge and function room designed for intimate milestone celebrations, baptisms, and Bauan corporate seminars with full AV support.</p>
+              <ul class="tag-list">
+                <li>Intimate Milestones</li>
+                <li>Corporate Seminars</li>
+                <li>Private Dining Lounge</li>
+              </ul>
+            </div>
+            <div class="venue-card__foot">
+              <div>
+                <span class="venue-card__label">Hall Reservation</span>
+                <span class="venue-card__price"><strong>₱22,000</strong> / session</span>
+              </div>
+              <button class="btn btn--dark btn--sm" type="button" data-modal-open="modal-manghinao-executive-hall">View Details</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CATERING PACKAGES ================= -->
+    <section class="section section--yellow" id="packages">
+      <div class="container">
+        <div class="center-head">
+          <p class="eyebrow">From Our Bauan Kitchen</p>
+          <h2 class="section-title">Catering Packages Highlights</h2>
+          <p class="section-lead">Prepared fresh with authentic Batangueño culinary craft. Choose a base tier below or launch our <a class="text-link" href="reservation.html">live estimator</a> to customize your menu.</p>
+        </div>
+
+        <div class="package-grid">
+          <article class="package-card">
+            <p class="package-card__tier">Tier 01 • Intimate &amp; Corporate</p>
+            <h3>Executive &amp; Milestone</h3>
+            <p class="package-card__price"><strong>₱450</strong> / head</p>
+            <ul class="check-list">
+              <li>3 signature main courses (Chicken, Pork &amp; Fish)</li>
+              <li>Steamed pandan rice &amp; savory pancit canton</li>
+              <li>Seasonal fruit salad dessert &amp; bottomless iced tea</li>
+              <li>Complete banquet tables, linens &amp; uniformed waitstaff</li>
+            </ul>
+            <a class="btn btn--outline btn--block" href="reservation.html?package=executive-milestone">Reserve Your Date</a>
+          </article>
+
+          <article class="package-card package-card--featured">
+            <span class="package-card__popular">Most Popular</span>
+            <p class="package-card__tier">Tier 02 • Signature Selection</p>
+            <h3>Classic Bauan Feast</h3>
+            <p class="package-card__price"><strong>₱550</strong> / head</p>
+            <ul class="check-list">
+              <li>4 main courses featuring Batangas Style Beef Caldereta &amp; Kare-Kare</li>
+              <li>Choice of creamy pasta or classic pancit canton</li>
+              <li>Steamed pandan rice, leche flan &amp; bottomless iced tea</li>
+              <li>Elevated centerpiece styling &amp; VIP presidential table setup</li>
+            </ul>
+            <a class="btn btn--gold btn--block" href="reservation.html?package=classic-bauan-feast">Reserve Your Date</a>
+          </article>
+
+          <article class="package-card">
+            <p class="package-card__tier">Tier 03 • Luxury Gala &amp; Weddings</p>
+            <h3>Grand Celebration</h3>
+            <p class="package-card__price"><strong>₱780</strong> / head</p>
+            <ul class="check-list">
+              <li>5 gourmet courses + live roast beef carving station</li>
+              <li>Welcome artisanal grazing table for cocktail hour</li>
+              <li>Artisan dessert bar &amp; mobile Barako coffee cart</li>
+              <li>Full floral backdrop styling &amp; dedicated event coordinator</li>
+            </ul>
+            <a class="btn btn--outline btn--block" href="reservation.html?package=grand-celebration">Reserve Your Date</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WORDS FROM OUR HOSTS ================= -->
+    <section class="section section--ivory" id="testimonials">
+      <div class="container">
+        <p class="eyebrow">Trusted Across Batangas</p>
+        <h2 class="section-title">Words from Our Hosts</h2>
+        <p class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span> 4.9/5 from 180+ Bauan Celebrations</p>
+
+        <div class="card-grid">
+          <figure class="testimonial">
+            <span class="testimonial__mark" aria-hidden="true">“</span>
+            <blockquote><strong>Our dream wedding realized.</strong> Having the ceremony and reception at Bauan Grand Pavilion saved our guests from traveling far. Everyone still talks about the Batangas Beef Caldereta!</blockquote>
+            <figcaption>
+              <span class="avatar avatar--brown">CM</span>
+              <span><strong>Clarissa &amp; Miguel Manalo</strong><small>Wedding Reception • Poblacion, Bauan</small></span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <span class="testimonial__mark" aria-hidden="true">“</span>
+            <blockquote><strong>The perfect debut venue.</strong> The fairy-light canopy at San Roque Garden &amp; Veranda looked magical at dusk. Their team handled the catering, grazing table, and styling seamlessly.</blockquote>
+            <figcaption>
+              <span class="avatar avatar--amber">SC</span>
+              <span><strong>Sofia Camille Reyes</strong><small>18th Birthday Debut • San Roque, Bauan</small></span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <span class="testimonial__mark" aria-hidden="true">“</span>
+            <blockquote><strong>Smooth, transparent, and punctual.</strong> We booked the Manghinao Executive Hall for our annual company thanksgiving. Checking available slots online and scheduling a tasting was effortless.</blockquote>
+            <figcaption>
+              <span class="avatar avatar--deep">RM</span>
+              <span><strong>Engr. Ramon Mendoza</strong><small>Corporate Banquet • Manghinao, Bauan</small></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= CALL-TO-ACTION + FOOTER (Contact) ================= -->
+  <div id="contact">
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to plan your celebration in Bauan?</h2>
+        <p>Drop by your Poblacion office for a complimentary menu tasting or lock in your preferred hall session online.</p>
+        <a class="btn btn--light" href="reservation.html">Reserve Your Date</a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer__grid">
+        <div>
+          <a class="brand brand--footer" href="#home" aria-label="OkasyoNest – back to top">
+            <!-- IMAGE PLACEHOLDER: FOOTER LOGO (same file as the header logo) -->
+            <div class="image-placeholder brand__logo">
+              <span>LOGO</span>
+              <img src="assets/images/logo-placeholder.png" alt="OkasyoNest logo" onerror="this.remove()">
+            </div>
+            <span class="brand__name">Okasyo<em>Nest</em></span>
+          </a>
+          <p class="footer__tagline">Exclusively serving Bauan, Batangas</p>
+          <p class="footer__about">Seamless event hall scheduling and curated Filipino banquet catering across all barangays of Bauan, Batangas—including Poblacion, San Roque, Manghinao, San Andres, Aplaya, and Sta. Maria.</p>
+        </div>
+
+        <div>
+          <h3 class="footer__title">Navigation</h3>
+          <ul class="footer__links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#venues">Venues</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__title">Bauan Office &amp; Kitchen</h3>
+          <ul class="footer__contact">
+            <li>Poblacion, Bauan, Batangas</li>
+            <li>Operating Hours: Mon – Sun, 8:00 AM – 6:00 PM</li>
+            <li><a href="mailto:bookings@okasyonest-jcb.ph">bookings@okasyonest-jcb.ph</a></li>
+            <li><a href="tel:+630437271480">+63 (043) 727-1480</a> • <a href="tel:+639178429104">+63 917 842 9104</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container footer__bottom">
+        <p>© 2026 OkasyoNest Event Venue Reservation Exclusively Serving Bauan, Batangas.</p>
+        <p class="footer__closing">Crafted with intention, warmth, and unforgettable flavor.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ================= HALL DETAILS MODALS ================= -->
+  <!-- MODAL 1: BAUAN GRAND PAVILION -->
+  <div class="modal" id="modal-bauan-grand-pavilion" role="dialog" aria-modal="true" aria-labelledby="title-bauan-grand-pavilion" aria-hidden="true">
+    <div class="modal__dialog">
+      <button class="modal__x" type="button" data-modal-close aria-label="Close hall details">&times;</button>
+      <!-- IMAGE PLACEHOLDER: MODAL – BAUAN GRAND PAVILION (same file as the venue card image) -->
+      <div class="image-placeholder ratio-modal">
+        <span>BAUAN GRAND PAVILION IMAGE</span>
+        <img src="assets/images/bauan-grand-pavilion-placeholder.jpg" alt="Bauan Grand Pavilion" onerror="this.remove()">
+      </div>
+      <div class="modal__body">
+        <p class="venue-card__location">Poblacion, Bauan, Batangas</p>
+        <h3 id="title-bauan-grand-pavilion">Bauan Grand Pavilion</h3>
+        <p>Our flagship air-conditioned grand ballroom designed for lavish Batangas weddings and milestone galas. Features warm crystal chandeliers, an elevated stage, private bridal suite, and full concert-grade acoustics.</p>
+        <div class="modal__stats">
+          <div><span>Maximum Capacity</span><strong>Up to 250 Guests</strong></div>
+          <div><span>Session Rate (5 Hours)</span><strong>₱42,000 / session</strong></div>
+        </div>
+        <div class="modal__actions">
+          <a class="btn btn--dark" href="reservation.html?hall=bauan-grand-pavilion">Check Dates for This Hall</a>
+          <button class="btn btn--outline" type="button" data-modal-close>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: SAN ROQUE GARDEN & VERANDA -->
+  <div class="modal" id="modal-san-roque-garden-veranda" role="dialog" aria-modal="true" aria-labelledby="title-san-roque-garden-veranda" aria-hidden="true">
+    <div class="modal__dialog">
+      <button class="modal__x" type="button" data-modal-close aria-label="Close hall details">&times;</button>
+      <!-- IMAGE PLACEHOLDER: MODAL – SAN ROQUE GARDEN & VERANDA -->
+      <div class="image-placeholder ratio-modal">
+        <span>SAN ROQUE GARDEN IMAGE</span>
+        <img src="assets/images/san-roque-garden-placeholder.jpg" alt="San Roque Garden and Veranda" onerror="this.remove()">
+      </div>
+      <div class="modal__body">
+        <p class="venue-card__location">San Roque, Bauan, Batangas</p>
+        <h3 id="title-san-roque-garden-veranda">San Roque Garden &amp; Veranda</h3>
+        <p>A romantic covered open-air garden pavilion draped in warm fairy lights, overlooking a landscaped courtyard—ideal for sunset ceremonies, debuts, and garden receptions.</p>
+        <div class="modal__stats">
+          <div><span>Maximum Capacity</span><strong>Up to 150 Guests</strong></div>
+          <div><span>Session Rate (5 Hours)</span><strong>₱42,000 / session</strong></div>
+        </div>
+        <div class="modal__actions">
+          <a class="btn btn--dark" href="reservation.html?hall=san-roque-garden-veranda">Check Dates for This Hall</a>
+          <button class="btn btn--outline" type="button" data-modal-close>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: MANGHINAO EXECUTIVE FUNCTION HALL -->
+  <div class="modal" id="modal-manghinao-executive-hall" role="dialog" aria-modal="true" aria-labelledby="title-manghinao-executive-hall" aria-hidden="true">
+    <div class="modal__dialog">
+      <button class="modal__x" type="button" data-modal-close aria-label="Close hall details">&times;</button>
+      <!-- IMAGE PLACEHOLDER: MODAL – MANGHINAO EXECUTIVE FUNCTION HALL -->
+      <div class="image-placeholder ratio-modal">
+        <span>MANGHINAO HALL IMAGE</span>
+        <img src="assets/images/manghinao-hall-placeholder.jpg" alt="Manghinao Executive Function Hall" onerror="this.remove()">
+      </div>
+      <div class="modal__body">
+        <p class="venue-card__location">Manghinao, Bauan, Batangas</p>
+        <h3 id="title-manghinao-executive-hall">Manghinao Executive Function Hall</h3>
+        <p>An intimate, wood-accented private dining lounge and seminar space equipped with built-in projector screens, high-speed Wi-Fi, and dedicated buffet service.</p>
+        <div class="modal__stats">
+          <div><span>Maximum Capacity</span><strong>Up to 80 Guests</strong></div>
+          <div><span>Session Rate (5 Hours)</span><strong>₱22,000 / session</strong></div>
+        </div>
+        <div class="modal__actions">
+          <a class="btn btn--dark" href="reservation.html?hall=manghinao-executive-hall">Check Dates for This Hall</a>
+          <button class="btn btn--outline" type="button" data-modal-close>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

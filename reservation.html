@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reserve Your Date | OkasyoNest</title>
+  <meta name="description" content="Reserve an OkasyoNest event hall in Bauan, Batangas. Choose your hall, catering package, and mode of payment.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Serif+Display:ital@0;1&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/reservation.css">
+</head>
+<body class="page-reservation">
+  <a class="skip-link" href="#reservationForm">Skip to the reservation form</a>
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header__inner">
+      <a class="brand" href="index.html#home" aria-label="OkasyoNest – back to home">
+        <!-- IMAGE PLACEHOLDER: LOGO (assets/images/logo-placeholder.png) -->
+        <div class="image-placeholder brand__logo">
+          <span>LOGO</span>
+          <img src="assets/images/logo-placeholder.png" alt="OkasyoNest logo" onerror="this.remove()">
+        </div>
+        <span class="brand__text">
+          <span class="brand__name">Okasyo<em>Nest</em></span>
+          <span class="brand__tag">Event Venue Reservation</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#venues">Venues</a></li>
+          <li><a href="index.html#packages">Packages</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li class="nav__cta"><a class="btn btn--gold btn--sm" href="reservation.html" aria-current="page">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="reservation">
+    <div class="container">
+      <header class="res-head">
+        <p class="eyebrow">Reserve Your Date</p>
+        <h1>Event Reservation &amp; Mode of Payment</h1>
+        <p>Complete your event details below and select whether you prefer to settle via <strong>Cash Payment</strong> or <strong>Online Payment</strong> (GCash, Maya, or Bank Transfer).</p>
+      </header>
+
+      <div class="res-layout">
+        <!-- ================= LEFT: FORM ================= -->
+        <form class="form-card" id="reservationForm" novalidate>
+          <h2 class="form-card__title"><span class="step">1</span> Event &amp; Contact Details</h2>
+
+          <div class="field-grid">
+            <div class="field col-3">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g., Juan Dela Cruz" autocomplete="name" required>
+              <small class="field-error" id="err-fullName" aria-live="polite"></small>
+            </div>
+
+            <div class="field col-3">
+              <label for="contact">Mobile Number or Email *</label>
+              <input type="text" id="contact" name="contact" placeholder="+63 917 000 0000" autocomplete="tel" required>
+              <small class="field-error" id="err-contact" aria-live="polite"></small>
+            </div>
+
+            <div class="field col-3">
+              <label for="eventType">Event Type</label>
+              <select id="eventType" name="eventType">
+                <option>Wedding Reception</option>
+                <option>18th Birthday Debut</option>
+                <option>Family Reunion</option>
+                <option>Christening</option>
+                <option>Gala</option>
+              </select>
+            </div>
+
+            <div class="field col-3">
+              <label for="hall">Preferred Hall</label>
+              <select id="hall" name="hall">
+                <option value="bauan-grand-pavilion">Bauan Grand Pavilion</option>
+                <option value="san-roque-garden-veranda" selected>San Roque Garden &amp; Veranda</option>
+                <option value="manghinao-executive-hall">Manghinao Executive Function Hall</option>
+              </select>
+              <small class="field-hint" id="capacityHint"></small>
+              <small class="field-error" id="err-hall" aria-live="polite"></small>
+            </div>
+
+            <div class="field col-2">
+              <label for="eventDate">Event Date *</label>
+              <input type="date" id="eventDate" name="eventDate" required>
+              <small class="field-error" id="err-eventDate" aria-live="polite"></small>
+            </div>
+
+            <div class="field col-2">
+              <label for="timeSlot">Time Slot *</label>
+              <select id="timeSlot" name="timeSlot" required>
+                <option value="" selected disabled>Select a slot</option>
+                <option value="morning">Morning</option>
+                <option value="afternoon">Afternoon</option>
+                <option value="evening">Evening</option>
+              </select>
+              <small class="field-error" id="err-timeSlot" aria-live="polite"></small>
+            </div>
+
+            <div class="field col-2">
+              <label for="guests">Est. Guests *</label>
+              <input type="number" id="guests" name="guests" min="1" step="1" inputmode="numeric" placeholder="105" required>
+              <small class="field-error" id="err-guests" aria-live="polite"></small>
+            </div>
+
+            <!-- Availability: placeholder only. Real dates must come from the backend. -->
+            <div class="field col-6">
+              <div class="availability" id="availability">
+                <!-- FUTURE FEATURE PLACEHOLDER: AVAILABILITY CALENDAR
+                     The backend will return booked / blocked dates per hall and time slot.
+                     Render the calendar inside this box (see checkAvailability() in js/reservation.js). -->
+                <div class="availability__box" data-placeholder="Availability calendar">AVAILABILITY CALENDAR PLACEHOLDER</div>
+                <div class="availability__side">
+                  <button class="btn btn--outline btn--sm" type="button" id="checkAvailabilityBtn">Check Availability</button>
+                  <p class="availability__msg" id="availabilityMsg" aria-live="polite">Live availability will be loaded from the OkasyoNest system once the backend is connected. For now, your preferred date is only a request.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="field col-3">
+              <label for="catering">Catering Packages</label>
+              <select id="catering" name="catering">
+                <option value="executive-milestone" selected>Executive &amp; Milestone</option>
+                <option value="classic-bauan-feast">Classic Bauan Feast</option>
+                <option value="grand-celebration">Grand Celebration</option>
+              </select>
+              <small class="field-error" id="err-catering" aria-live="polite"></small>
+            </div>
+
+            <div class="field col-3">
+              <label for="promo">Applied Promotion</label>
+              <select id="promo" name="promo">
+                <option value="first-time" selected>First-Time Client Promo - 20% OFF</option>
+                <option value="repeat">Repeat Client Discount - 10% OFF</option>
+              </select>
+              <small class="field-hint">Demo input. In the live system, first-time or returning status is detected automatically from your reservation history.</small>
+            </div>
+
+            <div class="field col-6">
+              <label for="notes">Menu Preferences, Color Motif, or Barangay Delivery Notes</label>
+              <textarea id="notes" name="notes" rows="4" placeholder="Share any preferred dish substitutions, motif colors, or special setup notes in Bauan..."></textarea>
+            </div>
+          </div>
+
+          <!-- ---------- MODE OF PAYMENT ---------- -->
+          <h2 class="form-card__title form-card__title--spaced"><span class="step">2</span> Mode of Payment</h2>
+          <p class="form-card__sub">Choose whether you will pay in Cash or via Online Payment.</p>
+
+          <div class="pay-options" role="radiogroup" aria-label="Mode of payment">
+            <label class="pay-option is-selected">
+              <input type="radio" name="paymentMode" value="cash" checked>
+              <span class="pay-option__head"><span class="pay-option__icon" aria-hidden="true">💵</span> Cash Payment</span>
+              <span class="pay-option__text">Pay in person during your venue ocular visit or at the OkasyoNest office.</span>
+            </label>
+            <label class="pay-option">
+              <input type="radio" name="paymentMode" value="online">
+              <span class="pay-option__head"><span class="pay-option__icon" aria-hidden="true">📱</span> Online Payment</span>
+              <span class="pay-option__text">Instant reservation deposit via <strong>GCash, Maya,</strong> or <strong>Bank Transfer</strong> (BDO / BPI).</span>
+            </label>
+          </div>
+
+          <!-- CASH PANEL -->
+          <div class="pay-panel" id="cashPanel">
+            <div class="pay-panel__head">
+              <h3>Cash Payment Instructions</h3>
+              <span class="pill pill--green">48-Hr Pencil Hold</span>
+            </div>
+            <p>Your preferred date will be placed on a <strong>48-hour courtesy hold</strong>. Visit the OkasyoNest office during its designated payment hours to settle the <strong>₱5,000 reservation fee</strong> in cash. The remaining balance is payable 7 days before your event or on the event day.</p>
+            <div class="radio-row" role="radiogroup" aria-label="Cash payment arrangement">
+              <label class="radio-chip">
+                <input type="radio" name="cashArrangement" value="office-visit">
+                <span>Cash upon Ocular / Office Visit</span>
+              </label>
+              <label class="radio-chip is-selected">
+                <input type="radio" name="cashArrangement" value="downpayment" checked>
+                <span>Downpayment + On-the-Day Cash</span>
+              </label>
+            </div>
+            <small class="field-error" id="err-cashArrangement" aria-live="polite"></small>
+          </div>
+
+          <!-- ONLINE PANEL -->
+          <div class="pay-panel" id="onlinePanel" hidden>
+            <div class="pay-panel__head">
+              <h3>Select Online Channel</h3>
+              <span class="pill pill--gold">Date Lock After Verification</span>
+            </div>
+
+            <div class="radio-row" role="radiogroup" aria-label="Online payment channel">
+              <label class="radio-chip is-selected"><input type="radio" name="onlineChannel" value="gcash" checked><span>GCash</span></label>
+              <label class="radio-chip"><input type="radio" name="onlineChannel" value="maya"><span>Maya</span></label>
+              <label class="radio-chip"><input type="radio" name="onlineChannel" value="bank"><span>Bank Transfer</span></label>
+            </div>
+
+            <!-- Payment info card: values come from PAYMENT_ACCOUNTS in js/data.js -->
+            <div class="account-card" id="accountCard">
+              <h4 id="accTitle">GCash Express Send</h4>
+              <dl class="account-card__rows">
+                <div><dt>Account Name</dt><dd id="accName"></dd></div>
+                <div id="accBankRow" hidden><dt>Bank Name</dt><dd id="accBank"></dd></div>
+                <div>
+                  <dt>Account Number</dt>
+                  <dd class="account-card__number">
+                    <strong id="accNumber"></strong>
+                    <button class="btn btn--outline btn--sm" type="button" id="copyNumberBtn">Copy Number</button>
+                  </dd>
+                </div>
+              </dl>
+              <!-- IMAGE PLACEHOLDER: PAYMENT QR CODE (optional)
+                   Save the real QR as assets/images/payment-qr-placeholder.png -->
+              <div class="image-placeholder qr-placeholder">
+                <span>QR CODE</span>
+                <img src="assets/images/payment-qr-placeholder.png" alt="Payment QR code" onerror="this.remove()">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="paymentRef">Payment Reference No. *</label>
+              <input type="text" id="paymentRef" name="paymentRef" placeholder="e.g., GCash Reference Number" autocomplete="off">
+              <small class="field-error" id="err-paymentRef" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <p class="form-status" id="formStatus" role="alert"></p>
+          <button class="btn btn--submit btn--block" type="submit" id="submitBtn">Confirm Event Reservation</button>
+          <p class="form-card__fine">Prototype notice: submitting creates a demo request only. No payment is processed and no date is booked until the OkasyoNest team confirms it.</p>
+        </form>
+
+        <!-- ================= RIGHT: LIVE SUMMARY ================= -->
+        <aside class="summary-card" aria-labelledby="summaryTitle">
+          <p class="summary-card__eyebrow">Live Preview</p>
+          <h2 id="summaryTitle">Reservation Summary</h2>
+
+          <dl class="summary-list" aria-live="polite">
+            <div><dt>Selected Hall</dt><dd class="is-gold" id="sumHall">—</dd></div>
+            <div><dt>Hall Session Rate</dt><dd id="sumHallRate">—</dd></div>
+            <div><dt>Date &amp; Slot</dt><dd id="sumDateSlot">Pick a date • Select a slot</dd></div>
+            <div><dt>Estimated Guests</dt><dd id="sumGuests">—</dd></div>
+            <div><dt>Catering Package</dt><dd id="sumPackage">—</dd></div>
+            <div><dt>Package Price per Head</dt><dd id="sumPerHead">—</dd></div>
+            <div><dt>Catering Subtotal</dt><dd id="sumCatering">—</dd></div>
+            <div><dt>Applied Promotion</dt><dd class="is-green" id="sumPromo">—</dd></div>
+            <div><dt>Discount</dt><dd id="sumDiscount">—</dd></div>
+            <div><dt>Mode of Payment</dt><dd><span class="pill pill--outline" id="sumPayment">Cash Payment</span></dd></div>
+          </dl>
+
+          <div class="summary-deposit">
+            <div class="summary-deposit__row">
+              <span>Reservation Deposit to Lock Date</span>
+              <strong id="sumDeposit">₱5,000.00</strong>
+            </div>
+            <p>Deductible from your total package bill. Our OkasyoNest coordinator will send your itemized quotation within 2 hours.</p>
+          </div>
+
+          <dl class="summary-totals">
+            <div><dt>Estimated Total</dt><dd id="sumTotal">—</dd></div>
+            <div><dt>Remaining Balance</dt><dd id="sumBalance">—</dd></div>
+          </dl>
+          <p class="summary-card__fine" id="sumNote">Enter a valid guest count to see your estimated total. Final amounts appear in the itemized quotation.</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer site-footer--compact">
+    <div class="container footer__bottom">
+      <p>© 2026 OkasyoNest Event Venue Reservation Exclusively Serving Bauan, Batangas.</p>
+      <p>Poblacion, Bauan, Batangas • Mon – Sun, 8:00 AM – 6:00 PM • <a href="mailto:bookings@okasyonest-jcb.ph">bookings@okasyonest-jcb.ph</a> • <a href="tel:+639178429104">+63 917 842 9104</a></p>
+    </div>
+  </footer>
+
+  <!-- ================= CONFIRMATION MODAL (demo) ================= -->
+  <div class="modal" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle" aria-hidden="true">
+    <div class="modal__dialog">
+      <button class="modal__x" type="button" data-modal-close aria-label="Close confirmation">&times;</button>
+      <div class="modal__body">
+        <span class="pill pill--gold confirm__badge">Demo request • Pending review</span>
+        <h3 id="confirmTitle">Reservation request received</h3>
+        <p class="confirm__ref">Reference no. <strong id="confirmRef"></strong></p>
+        <dl class="confirm__list" id="confirmList"></dl>
+        <p class="confirm__note" id="confirmNote"></p>
+        <div class="modal__actions">
+          <button class="btn btn--dark" type="button" id="newReservationBtn" data-modal-close>Make Another Reservation</button>
+          <a class="btn btn--outline" href="index.html#home">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/reservation.js"></script>
+</body>
+</html>
