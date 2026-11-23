@@ -3,7 +3,7 @@ Save each real picture in THIS folder using the exact file name below.
 No HTML change is needed: the page shows the picture automatically and
 hides the striped placeholder box once the file exists.
 
-logo-placeholder.png                 header + footer logo (PNG, transparent background works best)
+header + footer logo (PNG, transparent background works best)
 home-hero-placeholder.jpg            home hero background (wide, about 1920x1080)
 about-1-placeholder.jpg              Our Story picture 1 (16:10)
 about-2-placeholder.jpg              Our Story picture 2 (16:10)
