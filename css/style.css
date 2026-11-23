@@ -105,11 +105,21 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
   font-size: .7rem; font-weight: 600; letter-spacing: .06em; text-align: center; color: var(--muted);
 }
 .image-placeholder img { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; object-fit: cover; }
-.ratio-gallery { aspect-ratio: 4 / 5; }
+.ratio-gallery { aspect-ratio: 1.45 / 1; border-radius: 28px; box-shadow: 8px 10px 22px rgba(50, 22, 8, .32); }
 .ratio-promo { aspect-ratio: 4 / 3; border-radius: 0; }
 .ratio-venue { aspect-ratio: 4 / 3; border-radius: 22px; }
 .ratio-modal { aspect-ratio: 16 / 9; border-radius: 0; }
 .qr-placeholder { width: 160px; aspect-ratio: 1; margin: 16px auto 0; border-radius: 12px; }
+
+/* Image hover effects: smooth zoom inside the frame (About, Promos, Venues, Modals) */
+.ratio-gallery img, .ratio-promo img, .ratio-venue img, .ratio-modal img { transition: transform .6s ease; will-change: transform; }
+.ratio-gallery:hover img,
+.promo-card__media:hover .ratio-promo img,
+.venue-card__media:hover .ratio-venue img,
+.ratio-modal:hover img { transform: scale(1.08); }
+/* About gallery cards also lift slightly */
+.ratio-gallery { transition: transform .35s ease, box-shadow .35s ease; }
+.ratio-gallery:hover { transform: translateY(-6px); box-shadow: 10px 16px 30px rgba(50, 22, 8, .42); }
 
 /* ---------- 5. HEADER / NAV ---------- */
 .site-header { position: sticky; top: 0; z-index: 100; background: var(--choc); color: #fff; transition: box-shadow .25s; }
@@ -259,6 +269,13 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
 @keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes modal-rise { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
 
+/* ---------- HOVER LIFT (promo, venue, package, testimonial cards) ---------- */
+.promo-card, .venue-card, .package-card, .testimonial { transition: transform .35s ease, box-shadow .35s ease; }
+.promo-card:hover, .venue-card:hover, .package-card:hover, .testimonial:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(50, 22, 8, .32);
+}
+
 /* ---------- 14. RESPONSIVE ---------- */
 @media (max-width: 900px) {
   .nav-toggle { display: flex; }
@@ -286,6 +303,7 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
 }
 @media (min-width: 1000px) {
   .package-card--featured { transform: translateY(-10px); }
+  .package-card--featured:hover { transform: translateY(-18px); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
